@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="اختبر دماغك في 10 أسئلة منطق وتركيز صعبة. تحدى نفسك وشوف نتيجتك.">
+<meta name="theme-color" content="#111827">
+<title>اختبر دماغك 🧠 | تحدي الذكاء والمنطق</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Tahoma,sans-serif;background:linear-gradient(135deg,#0f172a,#1e1b4b);color:#fff;min-height:100vh}
+.wrap{width:min(680px,94%);margin:auto;padding:28px 0 50px}.card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(10px);border-radius:24px;padding:24px;box-shadow:0 18px 60px #0005}
+h1{font-size:32px;text-align:center;margin:8px 0}.sub{text-align:center;color:#cbd5e1;line-height:1.7}
+.badge{display:inline-block;background:#f59e0b;color:#111827;font-weight:800;border-radius:999px;padding:7px 13px;font-size:13px}
+.center{text-align:center}.start{margin-top:20px}
+button{border:0;border-radius:14px;padding:14px 18px;font-size:17px;font-weight:800;cursor:pointer}
+.primary{background:#f59e0b;color:#111827;width:100%}.choice{display:block;width:100%;margin:10px 0;background:#fff;color:#111827;text-align:right}
+.choice:hover{background:#f1f5f9}.choice:disabled{cursor:default;opacity:.92}
+.choice.correct{background:#22c55e!important;color:#052e16}.choice.wrong{background:#ef4444!important;color:#fff}
+.top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:16px}
+.timer{font-size:20px;font-weight:900;background:#dc2626;padding:8px 13px;border-radius:12px;min-width:65px;text-align:center}
+.progress{height:9px;background:#334155;border-radius:20px;overflow:hidden;margin:12px 0 22px}.bar{height:100%;width:0;background:#f59e0b;transition:width .25s}
+.question{font-size:22px;line-height:1.55;margin:20px 0}.num{color:#fbbf24}
+.hidden{display:none}.result h2{text-align:center;font-size:30px}.score{font-size:58px;font-weight:900;text-align:center;color:#fbbf24;margin:10px}
+.note{background:rgba(15,23,42,.55);padding:15px;border-radius:15px;color:#cbd5e1;line-height:1.7;margin:18px 0}
+.adbox{min-height:90px;border:1px dashed rgba(255,255,255,.2);border-radius:14px;margin:18px 0;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:12px}
+.footer{text-align:center;color:#94a3b8;font-size:12px;margin-top:18px}.footer a{color:#cbd5e1}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card" id="home">
+    <div class="center"><span class="badge">🔥 مستوى صعب</span></div>
+    <h1>اختبر دماغك 🧠</h1>
+    <p class="sub">10 أسئلة منطق وتركيز. كل سؤال له وقت محدود، والأسئلة بتزيد صعوبة واحدة واحدة.</p>
+    <div class="adbox">مساحة إعلانية — جاهزة لإضافة كود شبكة الإعلانات بعد القبول</div>
+    <button class="primary start" onclick="startQuiz()">ابدأ التحدي 🚀</button>
+  </div>
+
+  <div class="card hidden" id="quiz">
+    <div class="top"><span id="count"></span><span class="timer" id="timer">15</span></div>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+    <div class="question" id="question"></div>
+    <div id="choices"></div>
+    <div class="adbox">مساحة إعلانية</div>
+  </div>
+
+  <div class="card hidden result" id="result">
+    <div class="center"><span class="badge">🏆 خلصت التحدي</span></div>
+    <h2>نتيجتك</h2>
+    <div class="score" id="score"></div>
+    <p class="sub" id="message"></p>
+    <div class="note" id="details"></div>
+    <div class="adbox">مساحة إعلانية</div>
+    <button class="primary" onclick="startQuiz()">جرب تاني 🔄</button>
+  </div>
+
+  <div class="footer">
+    اختبر دماغك © 2026 — محتوى ترفيهي وتعليمي.
+  </div>
+</div>
+
+<script>
+const questions=[
+ {q:"ما العدد التالي؟ 2، 6، 12، 20، 30، ؟",a:["40","42","44","46"],c:1},
+ {q:"لديك 3 مفاتيح خارج غرفة، وداخل الغرفة 3 لمبات. كل مفتاح يخص لمبة واحدة. مسموح تدخل الغرفة مرة واحدة فقط. كيف تعرف كل مفتاح؟",a:["تشغّل مفتاحًا واحدًا فقط وتدخل","تشغّل الأول دقائق ثم تطفئه، تشغّل الثاني وتدخل وتستخدم الحرارة والضوء","تشغّل الثلاثة وتدخل","مستحيل"],c:1},
+ {q:"أب وأم عندهما 6 أبناء، وكل ابن له أخت واحدة مشتركة بينهم. كام طفل في الأسرة؟",a:["6","7","8","12"],c:1},
+ {q:"إذا كان 5 عمال ينهون 5 قطع في 5 دقائق، فكم دقيقة يحتاج 100 عامل لإنهاء 100 قطعة بنفس المعدل؟",a:["5","20","100","500"],c:0},
+ {q:"رجل ينظر لصورة ويقول: ليس لي أخ أو أخت، لكن والد هذا الرجل هو ابن أبي. مين في الصورة؟",a:["أخوه","ابنه","أبوه","عمه"],c:1},
+ {q:"ساعة عقارب تشير إلى 3:15 بالضبط. ما الزاوية الأصغر بين العقربين؟",a:["0°","7.5°","15°","22.5°"],c:1},
+ {q:"ما العدد المختلف منطقيًا؟ 16، 25، 36، 49، 63، 81",a:["25","36","63","81"],c:2},
+ {q:"لديك 8 كرات متطابقة الشكل، واحدة منها أثقل. باستخدام ميزان كفتين مرتين فقط، كيف تضمن معرفة الكرة الأثقل؟",a:["3 ضد 3 ثم 1 ضد 1 من المجموعة الأثقل/المتبقية","4 ضد 4 ثم انتهى","2 ضد 2 ثم 2 ضد 2","مستحيل"],c:0},
+ {q:"ثلاثة أشخاص A وB وC: A يقول «B كاذب». B يقول «C كاذب». C يقول «A وB كاذبان». إذا كان شخص واحد فقط يقول الحقيقة، فمن هو؟",a:["A","B","C","لا يمكن تحديده"],c:1},
+ {q:"أنت في سباق وتجاوزت الشخص صاحب المركز الثاني. بقيت في أي مركز؟",a:["الأول","الثاني","الثالث","الرابع"],c:1}
+];
+
+let i=0,score=0,time=15,interval=null,locked=false;
+
+function startQuiz(){
+  clearInterval(interval); i=0; score=0;
+  document.getElementById("home").classList.add("hidden");
+  document.getElementById("result").classList.add("hidden");
+  document.getElementById("quiz").classList.remove("hidden");
+  showQuestion();
+}
+function showQuestion(){
+  locked=false; time=15;
+  const x=questions[i];
+  document.getElementById("count").textContent=`السؤال ${i+1} من ${questions.length}`;
+  document.getElementById("timer").textContent=time;
+  document.getElementById("bar").style.width=((i)/questions.length*100)+"%";
+  document.getElementById("question").innerHTML=`<span class="num">${i+1}.</span> ${x.q}`;
+  const box=document.getElementById("choices"); box.innerHTML="";
+  x.a.forEach((v,n)=>{
+    const b=document.createElement("button"); b.className="choice"; b.textContent=v;
+    b.onclick=()=>answer(n,b); box.appendChild(b);
+  });
+  clearInterval(interval);
+  interval=setInterval(()=>{time--;document.getElementById("timer").textContent=time;if(time<=0){clearInterval(interval);answer(-1,null)}},1000);
+}
+function answer(n,btn){
+  if(locked)return; locked=true; clearInterval(interval);
+  const x=questions[i], buttons=[...document.querySelectorAll(".choice")];
+  buttons.forEach((b,k)=>{b.disabled=true;if(k===x.c)b.classList.add("correct")});
+  if(n===x.c){score++; if(btn)btn.classList.add("correct")} else if(btn)btn.classList.add("wrong");
+  setTimeout(()=>{i++; if(i<questions.length)showQuestion(); else finish()},650);
+}
+function finish(){
+  document.getElementById("quiz").classList.add("hidden");
+  document.getElementById("result").classList.remove("hidden");
+  document.getElementById("bar").style.width="100%";
+  document.getElementById("score").textContent=`${score} / ${questions.length}`;
+  let msg,detail;
+  if(score<=3){msg="لسه محتاج تسخّن دماغك 😅";detail="الأسئلة دي كانت صعبة، وخصوصًا مع الوقت المحدود. جرّب تاني وركز في صياغة كل سؤال."}
+  else if(score<=6){msg="مستوى كويس… بس لسه فيه مجال 😎";detail="واضح إن عندك أساس كويس في المنطق، لكن السرعة والتركيز محتاجين شوية تدريب."}
+  else if(score<=8){msg="جامد جدًا 🔥";detail="أداء قوي في اختبار قصير بوقت محدود. كام غلطة زيادة وكانت النتيجة هتعلى أكتر."}
+  else{msg="دماغك شغالة بسرعة جدًا 🧠🔥";detail="حققت نتيجة عالية في مجموعة أسئلة منطق وتركيز بوقت محدود."}
+  document.getElementById("message").textContent=msg;
+  document.getElementById("details").textContent=detail;
+}
+</script>
+</body>
+</html>
