@@ -1,127 +1,252 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="اختبر دماغك في 10 أسئلة منطق وتركيز صعبة. تحدى نفسك وشوف نتيجتك.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="اختبر دماغك في أسئلة الحيوانات والأطفال والذكاء والمعلومات العامة. تحديات ممتعة وسريعة مع نتيجة في النهاية.">
 <meta name="theme-color" content="#111827">
-<title>اختبر دماغك 🧠 | تحدي الذكاء والمنطق</title>
+<title>اختبر دماغك 🧠 | أسئلة حيوانات وأطفال وذكاء</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Tahoma,sans-serif;background:linear-gradient(135deg,#0f172a,#1e1b4b);color:#fff;min-height:100vh}
-.wrap{width:min(680px,94%);margin:auto;padding:28px 0 50px}.card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(10px);border-radius:24px;padding:24px;box-shadow:0 18px 60px #0005}
-h1{font-size:32px;text-align:center;margin:8px 0}.sub{text-align:center;color:#cbd5e1;line-height:1.7}
-.badge{display:inline-block;background:#f59e0b;color:#111827;font-weight:800;border-radius:999px;padding:7px 13px;font-size:13px}
-.center{text-align:center}.start{margin-top:20px}
-button{border:0;border-radius:14px;padding:14px 18px;font-size:17px;font-weight:800;cursor:pointer}
-.primary{background:#f59e0b;color:#111827;width:100%}.choice{display:block;width:100%;margin:10px 0;background:#fff;color:#111827;text-align:right}
-.choice:hover{background:#f1f5f9}.choice:disabled{cursor:default;opacity:.92}
-.choice.correct{background:#22c55e!important;color:#052e16}.choice.wrong{background:#ef4444!important;color:#fff}
-.top{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:16px}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Tahoma,sans-serif;background:linear-gradient(135deg,#0f172a,#1e293b);color:#fff;min-height:100vh}
+.wrap{width:min(760px,94%);margin:25px auto 45px}
+.card{background:rgba(30,41,59,.96);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:22px;box-shadow:0 15px 40px rgba(0,0,0,.25);margin-bottom:18px}
+.center{text-align:center}
+h1{font-size:34px;margin:10px 0}
+h2{font-size:28px}
+.sub{color:#cbd5e1;line-height:1.8}
+.badge{display:inline-block;background:#f59e0b;color:#111827;padding:7px 12px;border-radius:999px;font-weight:900;font-size:13px}
+.categories{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.category{border:0;border-radius:18px;padding:20px 12px;font-size:18px;font-weight:900;cursor:pointer;color:#111827;background:#fff;min-height:105px}
+.category span{display:block;font-size:35px;margin-bottom:8px}
+.category small{display:block;font-size:12px;font-weight:700;margin-top:5px;color:#475569}
+.category:hover{transform:translateY(-2px)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px}
 .timer{font-size:20px;font-weight:900;background:#dc2626;padding:8px 13px;border-radius:12px;min-width:65px;text-align:center}
-.progress{height:9px;background:#334155;border-radius:20px;overflow:hidden;margin:12px 0 22px}.bar{height:100%;width:0;background:#f59e0b;transition:width .25s}
-.question{font-size:22px;line-height:1.55;margin:20px 0}.num{color:#fbbf24}
-.hidden{display:none}.result h2{text-align:center;font-size:30px}.score{font-size:58px;font-weight:900;text-align:center;color:#fbbf24;margin:10px}
-.note{background:rgba(15,23,42,.55);padding:15px;border-radius:15px;color:#cbd5e1;line-height:1.7;margin:18px 0}
+.progress{height:9px;background:#334155;border-radius:20px;overflow:hidden;margin:14px 0 22px}
+.bar{height:100%;width:0;background:#f59e0b;transition:width .2s}
+.question{font-size:22px;line-height:1.6;margin:20px 0}
+.choice{display:block;width:100%;margin:10px 0;border:0;border-radius:14px;padding:15px;background:#fff;color:#111827;text-align:right;font-size:16px;font-weight:800;cursor:pointer}
+.choice:hover{background:#e2e8f0}
+.primary{width:100%;border:0;border-radius:15px;padding:16px;background:#f59e0b;color:#111827;font-size:18px;font-weight:900;cursor:pointer}
+.secondary{width:100%;border:1px solid #64748b;border-radius:15px;padding:14px;background:transparent;color:#fff;font-size:16px;font-weight:800;cursor:pointer;margin-top:10px}
+.score{font-size:60px;font-weight:900;color:#fbbf24;text-align:center;margin:10px}
+.note{background:rgba(15,23,42,.65);padding:15px;border-radius:15px;color:#cbd5e1;line-height:1.8;margin:18px 0}
 .adbox{min-height:90px;border:1px dashed rgba(255,255,255,.2);border-radius:14px;margin:18px 0;display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:12px}
-.footer{text-align:center;color:#94a3b8;font-size:12px;margin-top:18px}.footer a{color:#cbd5e1}
+.hidden{display:none}
+.footer{text-align:center;color:#94a3b8;font-size:12px;line-height:2;margin-top:20px}
+.footer a{color:#cbd5e1}
+@media(max-width:520px){.categories{grid-template-columns:1fr}.question{font-size:20px}h1{font-size:29px}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="card" id="home">
-    <div class="center"><span class="badge">🔥 مستوى صعب</span></div>
-    <h1>اختبر دماغك 🧠</h1>
-    <p class="sub">10 أسئلة منطق وتركيز. كل سؤال له وقت محدود، والأسئلة بتزيد صعوبة واحدة واحدة.</p>
-    <div class="adbox">مساحة إعلانية — جاهزة لإضافة كود شبكة الإعلانات بعد القبول</div>
-    <button class="primary start" onclick="startQuiz()">ابدأ التحدي 🚀</button>
+
+<section class="card center" id="home">
+  <div><span class="badge">🎯 اختار تحديك</span></div>
+  <h1>اختبر دماغك 🧠</h1>
+  <p class="sub">اختار نوع الأسئلة اللي تحبها، جاوب بسرعة، وشوف نتيجتك في الآخر.</p>
+
+  <div class="categories">
+    <button class="category" onclick="startQuiz('animals')">
+      <span>🐾</span>أسئلة الحيوانات
+      <small>20 سؤال ممتع</small>
+    </button>
+    <button class="category" onclick="startQuiz('kids')">
+      <span>👶</span>أسئلة للأطفال
+      <small>20 سؤال بسيط وممتع</small>
+    </button>
+    <button class="category" onclick="startQuiz('logic')">
+      <span>🧠</span>ذكاء ومنطق
+      <small>10 أسئلة تحدي</small>
+    </button>
+    <button class="category" onclick="startQuiz('general')">
+      <span>🌍</span>معلومات عامة
+      <small>20 سؤال متنوع</small>
+    </button>
   </div>
 
-  <div class="card hidden" id="quiz">
-    <div class="top"><span id="count"></span><span class="timer" id="timer">15</span></div>
-    <div class="progress"><div class="bar" id="bar"></div></div>
-    <div class="question" id="question"></div>
-    <div id="choices"></div>
-    <div class="adbox">مساحة إعلانية</div>
+  <div class="adbox">مساحة إعلانية — جاهزة لإضافة كود الإعلانات بعد القبول</div>
+</section>
+
+<section class="card hidden" id="quiz">
+  <div class="top">
+    <span class="badge" id="categoryName"></span>
+    <span class="timer" id="timer">15</span>
   </div>
-
-  <div class="card hidden result" id="result">
-    <div class="center"><span class="badge">🏆 خلصت التحدي</span></div>
-    <h2>نتيجتك</h2>
-    <div class="score" id="score"></div>
-    <p class="sub" id="message"></p>
-    <div class="note" id="details"></div>
-    <div class="adbox">مساحة إعلانية</div>
-    <button class="primary" onclick="startQuiz()">جرب تاني 🔄</button>
+  <div class="top" style="margin-top:12px">
+    <span id="count"></span>
+    <span id="scoreLive">النتيجة: 0</span>
   </div>
+  <div class="progress"><div class="bar" id="bar"></div></div>
+  <div class="question" id="question"></div>
+  <div id="choices"></div>
+  <div class="adbox">مساحة إعلانية</div>
+</section>
 
-  <div class="footer">
-    اختبر دماغك © 2026 — محتوى ترفيهي وتعليمي.
-  </div>
-</div>
+<section class="card hidden center" id="result">
+  <div><span class="badge">🏆 خلصت الاختبار</span></div>
+  <h2>نتيجتك</h2>
+  <div class="score" id="score"></div>
+  <p class="sub" id="message"></p>
+  <div class="note" id="details"></div>
+  <div class="adbox">مساحة إعلانية</div>
+  <button class="primary" onclick="backHome()">اختار اختبار تاني 🔄</button>
+</section>
 
-<script>
-const questions=[
- {q:"ما العدد التالي؟ 2، 6، 12، 20، 30، ؟",a:["40","42","44","46"],c:1},
- {q:"لديك 3 مفاتيح خارج غرفة، وداخل الغرفة 3 لمبات. كل مفتاح يخص لمبة واحدة. مسموح تدخل الغرفة مرة واحدة فقط. كيف تعرف كل مفتاح؟",a:["تشغّل مفتاحًا واحدًا فقط وتدخل","تشغّل الأول دقائق ثم تطفئه، تشغّل الثاني وتدخل وتستخدم الحرارة والضوء","تشغّل الثلاثة وتدخل","مستحيل"],c:1},
- {q:"أب وأم عندهما 6 أبناء، وكل ابن له أخت واحدة مشتركة بينهم. كام طفل في الأسرة؟",a:["6","7","8","12"],c:1},
- {q:"إذا كان 5 عمال ينهون 5 قطع في 5 دقائق، فكم دقيقة يحتاج 100 عامل لإنهاء 100 قطعة بنفس المعدل؟",a:["5","20","100","500"],c:0},
- {q:"رجل ينظر لصورة ويقول: ليس لي أخ أو أخت، لكن والد هذا الرجل هو ابن أبي. مين في الصورة؟",a:["أخوه","ابنه","أبوه","عمه"],c:1},
- {q:"ساعة عقارب تشير إلى 3:15 بالضبط. ما الزاوية الأصغر بين العقربين؟",a:["0°","7.5°","15°","22.5°"],c:1},
- {q:"ما العدد المختلف منطقيًا؟ 16، 25، 36، 49، 63، 81",a:["25","36","63","81"],c:2},
- {q:"لديك 8 كرات متطابقة الشكل، واحدة منها أثقل. باستخدام ميزان كفتين مرتين فقط، كيف تضمن معرفة الكرة الأثقل؟",a:["3 ضد 3 ثم 1 ضد 1 من المجموعة الأثقل/المتبقية","4 ضد 4 ثم انتهى","2 ضد 2 ثم 2 ضد 2","مستحيل"],c:0},
- {q:"ثلاثة أشخاص A وB وC: A يقول «B كاذب». B يقول «C كاذب». C يقول «A وB كاذبان». إذا كان شخص واحد فقط يقول الحقيقة، فمن هو؟",a:["A","B","C","لا يمكن تحديده"],c:1},
- {q:"أنت في سباق وتجاوزت الشخص صاحب المركز الثاني. بقيت في أي مركز؟",a:["الأول","الثاني","الثالث","الرابع"],c:1}
-];
-
-let i=0,score=0,time=15,interval=null,locked=false;
-
-function startQuiz(){
-  clearInterval(interval); i=0; score=0;
-  document.getElementById("home").classList.add("hidden");
-  document.getElementById("result").classList.add("hidden");
-  document.getElementById("quiz").classList.remove("hidden");
-  showQuestion();
-}
-function showQuestion(){
-  locked=false; time=15;
-  const x=questions[i];
-  document.getElementById("count").textContent=`السؤال ${i+1} من ${questions.length}`;
-  document.getElementById("timer").textContent=time;
-  document.getElementById("bar").style.width=((i)/questions.length*100)+"%";
-  document.getElementById("question").innerHTML=`<span class="num">${i+1}.</span> ${x.q}`;
-  const box=document.getElementById("choices"); box.innerHTML="";
-  x.a.forEach((v,n)=>{
-    const b=document.createElement("button"); b.className="choice"; b.textContent=v;
-    b.onclick=()=>answer(n,b); box.appendChild(b);
-  });
-  clearInterval(interval);
-  interval=setInterval(()=>{time--;document.getElementById("timer").textContent=time;if(time<=0){clearInterval(interval);answer(-1,null)}},1000);
-}
-function answer(n,btn){
-  if(locked)return; locked=true; clearInterval(interval);
-  const x=questions[i], buttons=[...document.querySelectorAll(".choice")];
-  buttons.forEach((b,k)=>{b.disabled=true;if(k===x.c)b.classList.add("correct")});
-  if(n===x.c){score++; if(btn)btn.classList.add("correct")} else if(btn)btn.classList.add("wrong");
-  setTimeout(()=>{i++; if(i<questions.length)showQuestion(); else finish()},650);
-}
-function finish(){
-  document.getElementById("quiz").classList.add("hidden");
-  document.getElementById("result").classList.remove("hidden");
-  document.getElementById("bar").style.width="100%";
-  document.getElementById("score").textContent=`${score} / ${questions.length}`;
-  let msg,detail;
-  if(score<=3){msg="لسه محتاج تسخّن دماغك 😅";detail="الأسئلة دي كانت صعبة، وخصوصًا مع الوقت المحدود. جرّب تاني وركز في صياغة كل سؤال."}
-  else if(score<=6){msg="مستوى كويس… بس لسه فيه مجال 😎";detail="واضح إن عندك أساس كويس في المنطق، لكن السرعة والتركيز محتاجين شوية تدريب."}
-  else if(score<=8){msg="جامد جدًا 🔥";detail="أداء قوي في اختبار قصير بوقت محدود. كام غلطة زيادة وكانت النتيجة هتعلى أكتر."}
-  else{msg="دماغك شغالة بسرعة جدًا 🧠🔥";detail="حققت نتيجة عالية في مجموعة أسئلة منطق وتركيز بوقت محدود."}
-  document.getElementById("message").textContent=msg;
-  document.getElementById("details").textContent=detail;
-}
-</script>
-<footer style="text-align:center; padding:25px; margin-top:30px;">
+<footer class="footer">
+  اختبر دماغك © 2026 — محتوى ترفيهي وتعليمي.<br>
   <a href="about.html">من نحن</a> |
   <a href="privacy.html">سياسة الخصوصية</a> |
   <a href="contact.html">تواصل معنا</a>
 </footer>
+</div>
+
+<script>
+const banks = {
+animals: [
+{q:"ما أكبر حيوان معروف على كوكب الأرض؟",a:["الفيل","الحوت الأزرق","الزرافة","الدب القطبي"],c:1},
+{q:"أي حيوان يُعرف بأنه أسرع حيوان بري؟",a:["الأسد","الفهد","الحصان","الغزال"],c:1},
+{q:"كم قلبًا للأخطبوط؟",a:["قلب واحد","قلبان","3 قلوب","4 قلوب"],c:2},
+{q:"أي من الآتي طائر لكنه لا يستطيع الطيران؟",a:["النسر","البطريق","الصقر","الحمامة"],c:1},
+{q:"ما الحيوان الذي يتميز بوجود خرطوم طويل؟",a:["الفيل","وحيد القرن","التمساح","الحصان"],c:0},
+{q:"ماذا تنتج النحلة؟",a:["الحرير","العسل","اللبن","الزيت"],c:1},
+{q:"أي حيوان له رقبة طويلة جدًا؟",a:["الزرافة","الفهد","الذئب","الباندا"],c:0},
+{q:"ما الحيوان الذي يحمل صغاره في جراب؟",a:["الكنغر","الأسد","الحوت","التمساح"],c:0},
+{q:"أي حيوان يُعرف بخطوطه السوداء والبيضاء؟",a:["الحمار الوحشي","الدب","الثعلب","النمر"],c:0},
+{q:"الجمل يخزن الدهون بشكل أساسي في...",a:["سنامه","ذيله","أذنيه","قدميه"],c:0},
+{q:"أي من الآتي من الثدييات؟",a:["الدلفين","القرش","الأخطبوط","السردين"],c:0},
+{q:"أي حيوان يستطيع تغيير لون جلده للتمويه؟",a:["الحرباء","الفيل","الحصان","البقرة"],c:0},
+{q:"ما أكبر حيوان بري من حيث الحجم؟",a:["الفيل الأفريقي","الأسد","الزرافة","وحيد القرن"],c:0},
+{q:"أي حيوان يُسمى أحيانًا ملك الغابة؟",a:["النمر","الأسد","الفهد","الذئب"],c:1},
+{q:"أي حيوان يعيش في الماء ويتنفس بالرئتين؟",a:["الدلفين","سمك القرش","التونة","الأخطبوط"],c:0},
+{q:"ما الحيوان المعروف بقدرته على بناء السدود؟",a:["القندس","الأرنب","الذئب","الثعلب"],c:0},
+{q:"أي من الآتي من الزواحف؟",a:["التمساح","الدلفين","البطريق","الفيل"],c:0},
+{q:"ما الحيوان الذي يمتلك أطول لسان تقريبًا مقارنة بجسمه؟",a:["الحرباء","الفيل","الزرافة","الدب"],c:0},
+{q:"أي حيوان يُعرف بحاسة شم قوية جدًا ويُستخدم أحيانًا في التتبع؟",a:["الكلب","البقرة","البطريق","السلحفاة"],c:0},
+{q:"ما اسم صغير القطة؟",a:["جرو","مهر","هريرة","حمل"],c:2}
+],
+kids: [
+{q:"كام يوم في الأسبوع؟",a:["5","6","7","8"],c:2},
+{q:"كام رجل للقط؟",a:["2","4","6","8"],c:1},
+{q:"2 + 3 = ؟",a:["4","5","6","7"],c:1},
+{q:"أي شكل له 3 أضلاع؟",a:["مربع","دائرة","مثلث","مستطيل"],c:2},
+{q:"إيه لون الموز غالبًا لما يكون ناضج؟",a:["أزرق","أصفر","بنفسجي","أسود"],c:1},
+{q:"الشمس بتظهر لنا من ناحية إيه؟",a:["الشرق","الغرب","الشمال","الجنوب"],c:0},
+{q:"كام إصبع في إيد واحدة؟",a:["3","4","5","6"],c:2},
+{q:"10 - 1 = ؟",a:["8","9","10","11"],c:1},
+{q:"أي حيوان يقول مياو؟",a:["كلب","قطة","حصان","بطة"],c:1},
+{q:"ما لون العشب غالبًا؟",a:["أخضر","وردي","بنفسجي","برتقالي"],c:0},
+{q:"كام شهر في السنة؟",a:["10","11","12","13"],c:2},
+{q:"أي واحد من دول فاكهة؟",a:["تفاحة","جزر","بطاطس","خيار"],c:0},
+{q:"كام عجلة في الدراجة العادية؟",a:["1","2","3","4"],c:1},
+{q:"أي كوكب نعيش عليه؟",a:["المريخ","الأرض","المشتري","زحل"],c:1},
+{q:"5 + 5 = ؟",a:["8","9","10","11"],c:2},
+{q:"أي حيوان معروف إنه بيطير؟",a:["عصفور","فيل","حصان","قطة"],c:0},
+{q:"ما الشكل الذي ليس له أضلاع؟",a:["مثلث","مربع","دائرة","مستطيل"],c:2},
+{q:"أي من الآتي وسيلة مواصلات؟",a:["سيارة","كرسي","كتاب","ملعقة"],c:0},
+{q:"كام عين عند الإنسان الطبيعي؟",a:["1","2","3","4"],c:1},
+{q:"الماء بيتحول لتلج عند درجة حرارة تقريبًا كام مئوية؟",a:["0","10","50","100"],c:0}
+],
+logic: [
+{q:"ما العدد التالي؟ 2، 6، 12، 20، 30، ؟",a:["40","42","44","46"],c:1},
+{q:"أي كلمة لا تنتمي للمجموعة؟",a:["أحمر","أزرق","أخضر","دائرة"],c:3},
+{q:"ما نصف 100 زائد 10؟",a:["55","60","110","45"],c:1},
+{q:"لو 5 عمال ينهوا شغلًا في 5 أيام بنفس المعدل، عامل واحد يحتاج تقريبًا كام يوم؟",a:["5","10","20","25"],c:3},
+{q:"أنت في سباق وتجاوزت الشخص صاحب المركز الثاني. بقيت في المركز كام؟",a:["الأول","الثاني","الثالث","الرابع"],c:1},
+{q:"ما العدد المختلف؟",a:["9","16","25","30"],c:3},
+{q:"إذا كانت الساعة 3:00، الزاوية بين العقربين كام درجة؟",a:["0","45","90","180"],c:2},
+{q:"أب عنده 4 أولاد: أحمد ومحمود وحسن. اسم الابن الرابع مذكور في السؤال إزاي؟",a:["الرابع","أحمد","محمود","غير مذكور"],c:0},
+{q:"لو كل القطط حيوانات، وبعض الحيوانات سريعة، هل لازم كل القطط تكون سريعة؟",a:["أيوه","لأ","دائمًا","مستحيل نعرف من المعلومة"],c:3},
+{q:"أي رقم يكمل النمط؟ 1، 1، 2، 3، 5، 8، ؟",a:["11","12","13","15"],c:2}
+],
+general: [
+{q:"ما عاصمة مصر؟",a:["القاهرة","الإسكندرية","الجيزة","الأقصر"],c:0},
+{q:"كم عدد قارات العالم في التصنيف الشائع؟",a:["5","6","7","8"],c:2},
+{q:"ما أكبر محيط على الأرض؟",a:["الأطلسي","الهندي","الهادئ","المتجمد الشمالي"],c:2},
+{q:"كم عدد ألوان قوس قزح في التصنيف الشائع؟",a:["5","6","7","8"],c:2},
+{q:"أي كوكب يُعرف بالكوكب الأحمر؟",a:["الزهرة","المريخ","عطارد","نبتون"],c:1},
+{q:"ما الغاز الذي يحتاجه الإنسان للتنفس؟",a:["الأكسجين","الهيليوم","النيتروجين فقط","الهيدروجين"],c:0},
+{q:"كم ساعة في اليوم؟",a:["12","18","24","48"],c:2},
+{q:"ما اللغة الرسمية في البرازيل؟",a:["الإسبانية","البرتغالية","الإنجليزية","الفرنسية"],c:1},
+{q:"أي معدن رمزه الكيميائي Fe؟",a:["الذهب","الحديد","الفضة","النحاس"],c:1},
+{q:"ما أكبر قارة من حيث المساحة؟",a:["أفريقيا","أوروبا","آسيا","أستراليا"],c:2},
+{q:"ما عاصمة فرنسا؟",a:["روما","مدريد","باريس","لندن"],c:2},
+{q:"كم ضلعًا للمربع؟",a:["3","4","5","6"],c:1},
+{q:"أي حاسة نستخدمها لسماع الأصوات؟",a:["البصر","السمع","الشم","اللمس"],c:1},
+{q:"ما أقرب نجم إلى الأرض؟",a:["الشمس","القمر","سيريوس","نجم القطب"],c:0},
+{q:"ما الحيوان الوطني الشهير في أستراليا؟",a:["الكنغر","النمر","الأسد","الجمل"],c:0},
+{q:"أي بحر يفصل بين مصر وشبه الجزيرة العربية؟",a:["البحر الأحمر","البحر الأسود","بحر قزوين","بحر البلطيق"],c:0},
+{q:"ما اسم القمر الطبيعي للأرض؟",a:["القمر","تيتان","أوروبا","فوبوس"],c:0},
+{q:"أي جهاز نستخدمه لقياس درجة الحرارة؟",a:["البارومتر","الترمومتر","البوصلة","الميكروسكوب"],c:1},
+{q:"ما عاصمة اليابان؟",a:["بكين","طوكيو","سيول","بانكوك"],c:1},
+{q:"كم دقيقة في الساعة؟",a:["30","45","60","90"],c:2}
+]
+};
+
+const names={animals:"🐾 الحيوانات",kids:"👶 الأطفال",logic:"🧠 الذكاء والمنطق",general:"🌍 معلومات عامة"};
+let questions=[],i=0,score=0,t=15,interval,currentCategory="";
+
+function startQuiz(cat){
+  currentCategory=cat;
+  questions=[...banks[cat]].sort(()=>Math.random()-0.5);
+  i=0;score=0;
+  document.getElementById("home").classList.add("hidden");
+  document.getElementById("result").classList.add("hidden");
+  document.getElementById("quiz").classList.remove("hidden");
+  document.getElementById("categoryName").textContent=names[cat];
+  show();
+}
+function show(){
+  clearInterval(interval);
+  t=15;
+  const x=questions[i];
+  document.getElementById("count").textContent=`السؤال ${i+1} من ${questions.length}`;
+  document.getElementById("scoreLive").textContent=`النتيجة: ${score}`;
+  document.getElementById("bar").style.width=((i)/questions.length*100)+"%";
+  document.getElementById("timer").textContent=t;
+  document.getElementById("question").textContent=x.q;
+  const box=document.getElementById("choices");
+  box.innerHTML="";
+  x.a.forEach((v,n)=>{
+    const b=document.createElement("button");
+    b.className="choice";
+    b.textContent=v;
+    b.onclick=()=>answer(n);
+    box.appendChild(b);
+  });
+  interval=setInterval(()=>{
+    t--;
+    document.getElementById("timer").textContent=t;
+    if(t<=0){clearInterval(interval);answer(-1);}
+  },1000);
+}
+function answer(n){
+  clearInterval(interval);
+  if(n===questions[i].c)score++;
+  i++;
+  if(i<questions.length)show(); else finish();
+}
+function finish(){
+  clearInterval(interval);
+  document.getElementById("quiz").classList.add("hidden");
+  document.getElementById("result").classList.remove("hidden");
+  document.getElementById("score").textContent=`${score}/${questions.length}`;
+  let msg;
+  if(score===questions.length) msg="🔥 أسطوري! جاوبت كل الأسئلة صح!";
+  else if(score>=Math.ceil(questions.length*.8)) msg="👏 ممتاز جدًا! مستواك عالي.";
+  else if(score>=Math.ceil(questions.length*.6)) msg="😎 شاطر! حاول تكسر نتيجتك المرة الجاية.";
+  else msg="💪 كويس! جرّب تاني وركز أكتر.";
+  document.getElementById("message").textContent=msg;
+  document.getElementById("details").textContent=`اختبار ${names[currentCategory]} — جاوبت صح على ${score} سؤال من ${questions.length}.`;
+}
+function backHome(){
+  clearInterval(interval);
+  document.getElementById("result").classList.add("hidden");
+  document.getElementById("quiz").classList.add("hidden");
+  document.getElementById("home").classList.remove("hidden");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+</script>
 </body>
 </html>
